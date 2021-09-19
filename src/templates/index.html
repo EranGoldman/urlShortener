@@ -9,13 +9,13 @@
   </head>
   <body>
     <div class="s004">
-      <form>
+      <form id="shotenForm">
         <fieldset>
-          <legend>Oh no ... that's our 404 page. Anyway, feel free to shorten something with us :</legend>
+          <legend>Lets short that link</legend>
           <div class="inner-form">
             <div class="input-field">
               <input class="form-control" id="url" type="text" placeholder="Url to shorten..." />
-              <button class="btn-link" type="button">
+              <button class="btn-link" type="submit" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path d="M2,10 L20,10 L11,2 L11,4 L22,11  L11,22 L11,20 L22,12 L2,11"></path>
                 </svg>
@@ -30,5 +30,14 @@
     </div>
     
 <script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$("#shotenForm").on('submit', function(e){
+     e.preventDefault();
+$.post("api/v1/shorten/"+encodeURIComponent($('#url').val()), function( data ) {
+$('#Response').html('Your short link is : <a href=http://127.0.0.1:5000/' + data.shorten + '>http://127.0.0.1:5000/' + data.shorten + '</a>')
+});
+  });
+
+</script>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
