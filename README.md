@@ -1,20 +1,3 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -46,9 +29,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -71,20 +51,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`EranGoldman`, `urlShortener`, `twitter_handle`, `erangoldman@gmail.com`, `urlShortener`, `This is a quick test for urlShortener in python 3.8`
-
-
-### Built With
-
-* []()
-* []()
-* []()
-
-
+This is a quick test for urlShortener in python 3.8
+I'll use some docker and terraform for easy deployment to Digitalocean
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -93,11 +61,10 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Python 3.8 
+* Docker 
+* Docker compose.
+
 
 ### Installation
 
@@ -105,20 +72,26 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/EranGoldman/urlShortener.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-
+2. Run docker-compose
+	```sh	
+	docker-compose up -d
+	```
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+* Go to http://localhost:5000 for the main page.
+* Use a shorten url http://localhost:5000/ABCDEF to forward the user to the target url
+* use the API
+  * Create new shorten url :
+  ```sh
+  curl -X POST http://localhost:5000/api/v1/shorten/<URL in url encoded format>
+  ```
+  * Get the unshortened url of a link
+  ```sh
+  curl -X POST http://localhost:5000/api/v1/lookup/<hash>
+  ```
 
 
 <!-- ROADMAP -->
@@ -151,34 +124,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - erangoldman@gmail.com
+Your Name - [@twitter_handle](https://twitter.com/erangoldman) - erangoldman@gmail.com
 
 Project Link: [https://github.com/EranGoldman/urlShortener](https://github.com/EranGoldman/urlShortener)
-
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+[First page template](https://colorlib.com/wp/template/colorlib-search-4/)  
+[README template](https://github.com/OSKWalker/Best-README-Template)
 
 
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/EranGoldman/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/EranGoldman/urlShortener/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/EranGoldman/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/EranGoldman/urlShortener/network/members
-[stars-shield]: https://img.shields.io/github/stars/EranGoldman/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/EranGoldman/urlShortener/stargazers
-[issues-shield]: https://img.shields.io/github/issues/EranGoldman/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/EranGoldman/urlShortener/issues
-[license-shield]: https://img.shields.io/github/license/EranGoldman/repo.svg?style=for-the-badge
-[license-url]: https://github.com/EranGoldman/urlShortener/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/EranGoldman
